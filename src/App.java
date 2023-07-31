@@ -7,7 +7,7 @@ public class App {
         // System.out.println("Hello, World desde #LaOficinaDePalito si señor esta vez
         // en vivo por twitch!!!!");
 
-        Object[] options = { "Convertir Divisas", "Convertir Temoeratura", "Salir" };
+        Object[] options = { "Convertir Divisas", "Convertir Temperatura", "Salir" };
         int elige = JOptionPane.showOptionDialog(null, "¿Que quieres hacer?", "Conversor", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
         if (elige == 2) {
@@ -56,12 +56,13 @@ public class App {
             DecimalFormat formatearDivisa = new DecimalFormat("#.##");
             boolean continuarPrograma = true;
             while (continuarPrograma) {
-                String[] opciones = { "Pesos a Euros", "Pesos a Dolares", "Pesos a Libras Esterlinas", "Pesos a Yen",
-                        "Pesos a Won" };
+                String[] opciones = { "Pesos a Eu0ros", "Pesos a Dolares", "Pesos a Libras Esterlinas", "Pesos a Yen",
+                        "Pesos a Won", "Euros a Pesos", "Dolares a Pesos", "Libras Esterlinas a Pesos", "Yen a Pesos",
+                        "Won a Pesos" };
                 String cambio = (String) JOptionPane.showInputDialog(null, "Elija una Forma de Convercion:",
                         "Conversor de Moneda", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
 
-                String input = JOptionPane.showInputDialog(null, "Ingrese la Cantidad de Pesos: ");
+                String input = JOptionPane.showInputDialog(null, "Ingrese la Cantidad: ");
                 double pesos = 0.00;
 
                 try {
@@ -73,24 +74,54 @@ public class App {
                 if (cambio.equals("Pesos a Euros")) {
                     double euros = pesos / 4388.04;
                     JOptionPane.showMessageDialog(null,
-                            pesos + "Pesos Colombianos son: " + formatearDivisa.format(euros) + " Euros. ");
+                            pesos + " Pesos Colombianos son: " + formatearDivisa.format(euros) + " Euros. ");
+
                 } else if (cambio.equals("Pesos a Dolares")) {
                     double dolares = pesos / 3949.19;
                     JOptionPane.showMessageDialog(null,
-                            pesos + "Pesos Colombianos son: " + formatearDivisa.format(dolares) + " Dolares. ");
+                            pesos + " Pesos Colombianos son: " + formatearDivisa.format(dolares) + " Dolares. ");
+
                 } else if (cambio.equals("Pesos a Libras Esterlinas")) {
                     double libras = pesos / 5121.72;
                     JOptionPane.showMessageDialog(null,
-                            pesos + "Pesos Colombianos son: " + formatearDivisa.format(libras)
+                            pesos + " Pesos Colombianos son: " + formatearDivisa.format(libras)
                                     + " Libras Esterlinas. ");
+
                 } else if (cambio.equals("Pesos a Yen")) {
                     double yen = pesos / 28.19;
                     JOptionPane.showMessageDialog(null,
-                            pesos + "Pesos Colombianos son: " + formatearDivisa.format(yen) + " Yen. ");
-                } else {
+                            pesos + " Pesos Colombianos son: " + formatearDivisa.format(yen) + " Yen. ");
+
+                } else if (cambio.equals("Pesos a Won")) {
                     double won = pesos / 3.09;
                     JOptionPane.showMessageDialog(null,
-                            pesos + "Pesos Colombianos son: " + formatearDivisa.format(won) + " Won.");
+                            pesos + " Pesos Colombianos son: " + formatearDivisa.format(won) + " Yen. ");
+
+                } else if (cambio.equals("Euros a Pesos")) {
+                    double euros = pesos * 4388.04;
+                    JOptionPane.showMessageDialog(null,
+                            pesos + "  Euros son: " + formatearDivisa.format(euros) + " Pesos Colombianos.");
+
+                } else if (cambio.equals("Dolares a Pesos")) {
+                    double dolares = pesos * 3949.04;
+                    JOptionPane.showMessageDialog(null,
+                            pesos + " Dolares son: " + formatearDivisa.format(dolares) + " Pesos Colombianos");
+
+                } else if (cambio.equals("Libras Esterlinas a Pesos")) {
+                    double libras = pesos * 5121.72;
+                    JOptionPane.showMessageDialog(null,
+                            pesos + " Libras Esterlinas son: " + formatearDivisa.format(libras)
+                                    + " Pesos Colombianos. ");
+
+                } else if (cambio.equals("Yen a Pesos")) {
+                    double yen = pesos * 28.19;
+                    JOptionPane.showMessageDialog(null,
+                            pesos + " Yen son: " + formatearDivisa.format(yen) + " Pesos Colombianos. ");
+
+                } else {
+                    double won = pesos * 3.09;
+                    JOptionPane.showMessageDialog(null,
+                            pesos + " Won son: " + formatearDivisa.format(won) + " Pesos Colombianos.");
                 }
 
                 int confirma = JOptionPane.showConfirmDialog(null, "¿Desea continuar el Programa?", "Conformar",
